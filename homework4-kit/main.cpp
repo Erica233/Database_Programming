@@ -6,7 +6,7 @@
 using namespace std;
 using namespace pqxx;
 
-void drop_tables(connection & C) {
+void drop_tables(connection * C) {
     /* Create SQL statement */
     //sql = "DROP TABLE if exists " +  + " cascade;";
     sql = "DROP TABLE IF EXISTS PLAYER, TEAM, STATE, COLOR cascade;";
@@ -18,7 +18,7 @@ void drop_tables(connection & C) {
     W.commit();
     cout << "Dropped tables successfully" << endl;
 }
-void create_tables(connection & C) {
+void create_tables(connection * C) {
     string sql = "";
     //state
     sql += "CREATE TABLE STATE ("
