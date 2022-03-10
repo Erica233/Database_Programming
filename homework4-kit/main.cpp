@@ -86,7 +86,7 @@ void insert_states(connection * C) {
     cout << "Added states successfully\n";
 }
 
-void insert_states_or_colors(connection * C, char * filename) {
+void insert_states_or_colors(connection * C, const char * filename) {
     ifstream file;
     file.open(filename);
     if (!file.is_open()) {
@@ -138,8 +138,8 @@ int main(int argc, char *argv[]) {
     create_tables(C);
     //insert
     //insert_states(C);
-    insert_states_or_colors(C, 'state.txt');
-    insert_states_or_colors(C, 'color.txt');
+    insert_states_or_colors(C, "state.txt");
+    insert_states_or_colors(C, "color.txt");
     //query
 
     //test
