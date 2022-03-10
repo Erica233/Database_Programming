@@ -13,17 +13,18 @@ void add_team(connection *C, string name, int state_id, int color_id, int wins, 
 void add_state(connection *C, string name) {
     string sql = "INSERT INTO STATE (NAME) VALUES ('" + name + "');";
 
-    /* Create a transactional object. */
     work W(*C);
-
-    /* Execute SQL query */
     W.exec( sql );
     W.commit();
-    //cout << "Added state " + name + " successfully" << endl;
 }
 
 
 void add_color(connection *C, string name) {
+    string sql = "INSERT INTO COLOR (NAME) VALUES ('" + name + "');";
+
+    work W(*C);
+    W.exec( sql );
+    W.commit();
 }
 
 

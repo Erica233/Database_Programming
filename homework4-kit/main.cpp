@@ -86,6 +86,29 @@ void insert_states(connection * C) {
     cout << "Added states successfully\n";
 }
 
+void insert_states_or_colors(connection * C, char * filename) {
+    ifstream file;
+    file.open(filename);
+    if (!file.is_open()) {
+        std::cerr << "Failed to open " << filename << endl;
+        exit(EXIT_FAILURE);
+    }
+    string name, line;
+    int id;
+    while (getline(file, line)) {
+        stringstream ssline(line);
+        ssline >> id >> name;
+        //cout << "id: " << id << " name: " << name << endl;
+        if (strcmp(filename, "state.txt") == 0) {
+            add_state(C, name);
+        } else {
+            add_color(C, name);
+        }
+    }
+    file.close();
+    cout << "Added " << filename << " successfully\n";
+}
+
 int main(int argc, char *argv[]) {
 
     //Allocate & initialize a Postgres connection object
@@ -114,7 +137,9 @@ int main(int argc, char *argv[]) {
     drop_tables(C);
     create_tables(C);
     //insert
-    insert_states(C);
+    //insert_states(C);
+    insert_states_or_colors(C, 'state.txt');
+    insert_states_or_colors(C, 'color.txt');
     //query
 
     //test
