@@ -16,7 +16,7 @@ void drop_tables(connection & C) {
     /* Execute SQL query */
     W.exec( sql );
     W.commit();
-    cout << "Drop tables successfully" << endl;
+    cout << "Dropped tables successfully" << endl;
 }
 void create_tables(connection & C) {
     string sql = "";
@@ -59,7 +59,7 @@ void create_tables(connection & C) {
     /* Execute SQL query */
     W.exec( sql );
     W.commit();
-    cout << "Table created successfully" << endl;
+    cout << "Created tables successfully" << endl;
 }
 
 int main(int argc, char *argv[]) {
