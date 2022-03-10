@@ -67,25 +67,6 @@ void create_tables(connection * C) {
     cout << "Created tables successfully" << endl;
 }
 
-void insert_states(connection * C) {
-    ifstream file;
-    file.open("state.txt");
-    if (!file.is_open()) {
-        std::cerr << "Failed to open state.txt\n";
-        exit(EXIT_FAILURE);
-    }
-    string name, line;
-    int id;
-    while (getline(file, line)) {
-        stringstream ssline(line);
-        ssline >> id >> name;
-        //cout << "id: " << id << " name: " << name << endl;
-        add_state(C, name);
-    }
-    file.close();
-    cout << "Added states successfully\n";
-}
-
 void insert_states_or_colors(connection * C, const char * filename) {
     ifstream file;
     file.open(filename);
@@ -106,7 +87,7 @@ void insert_states_or_colors(connection * C, const char * filename) {
         }
     }
     file.close();
-    cout << "Added " << filename << " successfully\n";
+    cout << "Added tuples according to " << filename << " successfully\n";
 }
 
 int main(int argc, char *argv[]) {
