@@ -11,7 +11,7 @@ void drop_tables(connection * C) {
     //sql = "DROP TABLE if exists " +  + " cascade;";
     string sql = "DROP TABLE IF EXISTS PLAYER, TEAM, STATE, COLOR cascade;";
     /* Create a transactional object. */
-    work W(C);
+    work W(*C);
 
     /* Execute SQL query */
     W.exec( sql );
@@ -54,7 +54,7 @@ void create_tables(connection * C) {
           "FOREIGN KEY (TEAM_ID) REFERENCES TEAM(TEAM_ID) ON DELETE SET NULL ON UPDATE CASCADE);";
 
     /* Create a transactional object. */
-    work W(C);
+    work W(*C);
 
     /* Execute SQL query */
     W.exec( sql );
