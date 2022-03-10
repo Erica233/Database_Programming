@@ -80,8 +80,8 @@ void insert_state(connection * C) {
         stringstream ssline(line);
         ssline >> id >> name;
         cout << "id: " << id << " name: " << name << endl;
-        add_color(C, name);
-        cout << "after add_color()\n";
+        add_state(C, name);
+        //cout << "after add_state()\n";
     }
     file.close();
 }
