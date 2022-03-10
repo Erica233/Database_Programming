@@ -9,7 +9,7 @@ using namespace pqxx;
 void drop_tables(connection * C) {
     /* Create SQL statement */
     //sql = "DROP TABLE if exists " +  + " cascade;";
-    sql = "DROP TABLE IF EXISTS PLAYER, TEAM, STATE, COLOR cascade;";
+    string sql = "DROP TABLE IF EXISTS PLAYER, TEAM, STATE, COLOR cascade;";
     /* Create a transactional object. */
     work W(C);
 
