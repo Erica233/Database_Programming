@@ -1,7 +1,11 @@
 #include <iostream>
 #include <pqxx/pqxx>
+#include <ifstream>
+#include <string>
+#include <sstream>
 
 #include "exerciser.h"
+#include "query_funcs.h"
 
 using namespace std;
 using namespace pqxx;
@@ -18,6 +22,7 @@ void drop_tables(connection * C) {
     W.commit();
     cout << "Dropped tables successfully" << endl;
 }
+
 void create_tables(connection * C) {
     string sql = "";
     //state
@@ -62,6 +67,24 @@ void create_tables(connection * C) {
     cout << "Created tables successfully" << endl;
 }
 
+void insert_state(connection * C) {
+    ifstream file;
+    file.open("state.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open state.txt\n";
+        exit(EXIT_FAILURE);
+    }
+    string name, line;
+    int id;
+    while (getline(file, line)) {
+        stringstream ssline(line);
+        ssline >> id >> name;
+        std::cout << "id: " << id << " name: " << name << endl;
+        add_color(C, name);
+    }
+    file.close();
+}
+
 int main(int argc, char *argv[]) {
 
     //Allocate & initialize a Postgres connection object
@@ -90,6 +113,7 @@ int main(int argc, char *argv[]) {
     drop_tables(C);
     create_tables(C);
     //insert
+    insert_state(C);
     //query
 
     //test
