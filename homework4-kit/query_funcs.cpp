@@ -11,16 +11,15 @@ void add_team(connection *C, string name, int state_id, int color_id, int wins, 
 
 
 void add_state(connection *C, string name) {
-    //cout << "in add_state()\n";
     string sql = "INSERT INTO STATE (NAME) VALUES ('" + name + "');";
-    //cout << "sql: " << sql << endl;
+
     /* Create a transactional object. */
     work W(*C);
 
     /* Execute SQL query */
     W.exec( sql );
     W.commit();
-    cout << "Added state " + name + " successfully" << endl;
+    //cout << "Added state " + name + " successfully" << endl;
 }
 
 

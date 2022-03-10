@@ -67,7 +67,7 @@ void create_tables(connection * C) {
     cout << "Created tables successfully" << endl;
 }
 
-void insert_state(connection * C) {
+void insert_states(connection * C) {
     ifstream file;
     file.open("state.txt");
     if (!file.is_open()) {
@@ -79,11 +79,11 @@ void insert_state(connection * C) {
     while (getline(file, line)) {
         stringstream ssline(line);
         ssline >> id >> name;
-        cout << "id: " << id << " name: " << name << endl;
+        //cout << "id: " << id << " name: " << name << endl;
         add_state(C, name);
-        //cout << "after add_state()\n";
     }
     file.close();
+    cout << "Added states successfully\n";
 }
 
 int main(int argc, char *argv[]) {
@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
     drop_tables(C);
     create_tables(C);
     //insert
-    insert_state(C);
+    insert_states(C);
     //query
 
     //test
