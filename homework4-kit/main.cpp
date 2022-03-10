@@ -79,8 +79,9 @@ void insert_state(connection * C) {
     while (getline(file, line)) {
         stringstream ssline(line);
         ssline >> id >> name;
-        std::cout << "id: " << id << " name: " << name << endl;
+        cout << "id: " << id << " name: " << name << endl;
         add_color(C, name);
+        cout << "after add_color()\n";
     }
     file.close();
 }
