@@ -105,6 +105,25 @@ void insert_teams(connection * C) {
     cout << "Added teams successfully\n";
 }
 
+void insert_players(connection * C) {
+    ifstream file;
+    file.open("player.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open player.txt\n";
+        exit(EXIT_FAILURE);
+    }
+    string first_name, last_name, line;
+    int player_id, team_id, jersey_num, mpg, ppg, rpg, apg;
+    double spg, bpg;
+    while (getline(file, line)) {
+        stringstream ssline(line);
+        ssline >> player_id >> team_id >> jersey_num >> first_name >> last_name >> mpg >> ppg >> rpg >> apg >> spg >> bpg;
+        add_player(C, team_id, jersey_num, first_name, last_name, mpg, ppg, rpg, apg, spg, bpg);
+    }
+    file.close();
+    cout << "Added players successfully\n";
+}
+
 int main(int argc, char *argv[]) {
 
     //Allocate & initialize a Postgres connection object
@@ -136,6 +155,7 @@ int main(int argc, char *argv[]) {
     insert_states_or_colors(C, "state.txt");
     insert_states_or_colors(C, "color.txt");
     insert_teams(C);
+    insert_players(C);
     //query
 
     //test

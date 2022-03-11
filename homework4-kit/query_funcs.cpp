@@ -3,6 +3,14 @@
 
 void add_player(connection *C, int team_id, int jersey_num, string first_name, string last_name,
                 int mpg, int ppg, int rpg, int apg, double spg, double bpg) {
+    stringstream ss_sql;
+    ss_sql << "INSERT INTO PLAYER (TEAM_ID, UNIFORM_NUM, FIRST_NAME, LAST_NAME, MPG, PPG, RPG, APG, SPG, BPG) "
+              "VALUES (" << team_id << ", " << jersey_num << ", '" << first_name << "', '" << last_name <<
+              "', " << mpg << ", " << ppg << ", " << rpg << ", " << apg << ", " << spg << ", " << bpg << ");";
+
+    work W(*C);
+    W.exec( ss_sql.str() );
+    W.commit();
 }
 
 
