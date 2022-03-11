@@ -9,6 +9,13 @@ void exercise(connection *C) {
            0, 1, 1,
            0, 1, 1,
            0, 1, 1);
+    query1(C,
+           1, 35, 40,
+           1, 10, 20,
+           1, 5, 10,
+           1, 1, 3,
+           1, 0, 2,
+           1, 0, 1);
 
     cout << "\n====== test query 2 =======\n";
     query2(C, "LightBlue");
