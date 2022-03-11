@@ -58,10 +58,7 @@ void create_tables(connection * C) {
           "BPG FLOAT,"
           "FOREIGN KEY (TEAM_ID) REFERENCES TEAM(TEAM_ID) ON DELETE SET NULL ON UPDATE CASCADE);";
 
-    /* Create a transactional object. */
     work W(*C);
-
-    /* Execute SQL query */
     W.exec( sql );
     W.commit();
     cout << "Created tables successfully" << endl;
@@ -88,6 +85,24 @@ void insert_states_or_colors(connection * C, const char * filename) {
     }
     file.close();
     cout << "Added tuples according to " << filename << " successfully\n";
+}
+
+void insert_teams(connection * C) {
+    ifstream file;
+    file.open("team.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open team.txt\n";
+        exit(EXIT_FAILURE);
+    }
+    string name, line;
+    int team_id, state_id, color_id, wins, losses;
+    while (getline(file, line)) {
+        stringstream ssline(line);
+        ssline >> team_id >> name >> state_id >> color_id >> wins >> losses;
+        add_team(C, name, state_id, color_id, wins, losses);
+    }
+    file.close();
+    cout << "Added teams successfully\n";
 }
 
 int main(int argc, char *argv[]) {
@@ -118,9 +133,9 @@ int main(int argc, char *argv[]) {
     drop_tables(C);
     create_tables(C);
     //insert
-    //insert_states(C);
     insert_states_or_colors(C, "state.txt");
     insert_states_or_colors(C, "color.txt");
+    insert_teams(C);
     //query
 
     //test

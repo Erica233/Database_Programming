@@ -7,6 +7,13 @@ void add_player(connection *C, int team_id, int jersey_num, string first_name, s
 
 
 void add_team(connection *C, string name, int state_id, int color_id, int wins, int losses) {
+    stringstream ss_sql;
+    ss_sql << "INSERT INTO TEAM (NAME, STATE_ID, COLOR_ID, WINS, LOSSES) "
+              "VALUES ('" << name << "', " << state_id << ", " << color_id << ", " << wins << ", " << losses << ");";
+
+    work W(*C);
+    W.exec( ss_sql.str() );
+    W.commit();
 }
 
 
