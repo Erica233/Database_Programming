@@ -60,11 +60,18 @@ void query1(connection *C,
     ss_sql << "select * from PLAYER where PLAYER_ID > 0";
     vector<string> names { "MPG", "PPG", "RPG", "APG", "SPG", "BPG" };
     vector<int> uses { use_mpg, use_ppg, use_rpg, use_apg, use_spg, use_bpg };
-    vector<double> mins { min_mpg, min_ppg, min_rpg, min_apg, min_spg, min_bpg };
-    vector<double> maxs { max_mpg, max_ppg, max_rpg, max_apg, max_spg, max_bpg };
-    for (int i = 0; i < names.size(); i++) {
+    vector<int> mins1 { min_mpg, min_ppg, min_rpg, min_apg };
+    vector<double> mins2 { min_spg, min_bpg };
+    vector<int> maxs1 { max_mpg, max_ppg, max_rpg, max_apg };
+    vector<double> maxs2 { max_spg, max_bpg };
+    for (int i = 0; i < mins1.size(); i++) {
         if (uses[i]) {
-            ss_sql << " and " << names[i] << "BETWEEN " << mins[i] << " AND " << maxs[i];
+            ss_sql << " and " << names[i] << "BETWEEN " << mins1[i] << " AND " << maxs1[i];
+        }
+    }
+    for (int i = 0; i < mins2.size(); i++) {
+        if (uses[i + 4]) {
+            ss_sql << " and " << names[i + 4] << "BETWEEN " << mins2[i] << " AND " << maxs2[i];
         }
     }
     ss_sql << ";";

@@ -4,11 +4,11 @@ void exercise(connection *C) {
     cout << "\n====== test query 1 =======\n";
     query1(C,
            1, 35, 40,
-           0, 0, 0,
-           0, 0, 0,
-           0, 0, 0,
-           0, 0, 0,
-           0, 0, 0);
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1);
 
     cout << "\n====== test query 2 =======\n";
     query2(C, "LightBlue");
