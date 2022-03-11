@@ -152,14 +152,14 @@ int main(int argc, char *argv[]) {
     //create tables (drop existed tables first)
     drop_tables(C);
     create_tables(C);
+
     //insert
     insert_states_or_colors(C, "state.txt");
     insert_states_or_colors(C, "color.txt");
     insert_teams(C);
     insert_players(C);
-    //query
 
-    //test
+    //test query functions
     exercise(C);
 
     //Close database connection
