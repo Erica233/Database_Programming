@@ -75,14 +75,18 @@ void query1(connection *C,
         }
     }
     ss_sql << ";";
-    cout << ss_sql.str() << endl;
+    //cout << ss_sql.str() << endl;
 
     result R( N.exec( ss_sql.str() ));
 
-    //cout << "FIRST_NAME LAST_NAME NAME WINS\n";
+    cout << "PLAYER_ID TEAM_ID UNIFORM_NUM FIRST_NAME LAST_NAME MPG PPG RPG APG SPG BPG\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
-        //cout << c[0].as<string>() << " " << c[1].as<string>() << " "
-        //     << c[2].as<string>() << " " << c[3].as<int>() << endl;
+        cout << c[0].as<int>() << " " << c[1].as<int>() << " "
+                << c[2].as<int>() << " " << c[3].as<string>() << " "
+                << c[4].as<string>() << " " << c[5].as<int>() << " "
+                << c[6].as<int>() << " " << c[7].as<int>() << " "
+                << c[8].as<int>() << " " << fixed << setprecision(1)
+                << c[9].as<double>() << " " << c[10].as<double>() << endl;
     }
     cout << "Query 1 done successfully" << endl;
 }
