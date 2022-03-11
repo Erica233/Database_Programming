@@ -55,6 +55,29 @@ void query1(connection *C,
             int use_spg, double min_spg, double max_spg,
             int use_bpg, double min_bpg, double max_bpg
 ) {
+    nontransaction N(*C);
+    stringstream ss_sql;
+    ss_sql << "select * from PLAYER where PLAYER_ID > 0";
+    vector<string> names { "MPG", "PPG", "RPG", "APG", "SPG", "BPG" };
+    vector<int> uses { use_mpg, use_ppg, use_rpg, use_apg, use_spg, use_bpg };
+    vector<double> mins { min_mpg, min_ppg, min_rpg, min_apg, min_spg, min_bpg };
+    vector<double> maxs { max_mpg, max_ppg, max_rpg, max_apg, max_spg, max_bpg };
+    for (int i = 0; i < names.size(); i++) {
+        if (uses[i]) {
+            ss_sql << " and " << names[i] << "BETWEEN " << mins[i] << " AND " << maxs[i];
+        }
+    }
+    ss_sql << ";";
+    cout << ss_sql.str() << endl;
+
+    result R( N.exec( ss_sql.str() ));
+
+    cout << "FIRST_NAME LAST_NAME NAME WINS\n";
+    for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
+        cout << c[0].as<string>() << " " << c[1].as<string>() << " "
+             << c[2].as<string>() << " " << c[3].as<int>() << endl;
+    }
+    cout << "Query 5: num_wins > " << num_wins << " done successfully" << endl;
 }
 
 

@@ -2,6 +2,7 @@
 #include <pqxx/pqxx>
 #include <string>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 using namespace pqxx;
