@@ -77,7 +77,7 @@ void query1(connection *C,
         cout << c[0].as<string>() << " " << c[1].as<string>() << " "
              << c[2].as<string>() << " " << c[3].as<int>() << endl;
     }
-    cout << "Query 5: num_wins > " << num_wins << " done successfully" << endl;
+    cout << "Query 1 done successfully" << endl;
 }
 
 
