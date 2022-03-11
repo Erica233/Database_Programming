@@ -117,7 +117,8 @@ void insert_players(connection * C) {
     double spg, bpg;
     while (getline(file, line)) {
         stringstream ssline(line);
-        ssline >> player_id >> team_id >> jersey_num >> first_name >> last_name >> mpg >> ppg >> rpg >> apg >> spg >> bpg;
+        ssline >> player_id >> team_id >> jersey_num >> first_name >> last_name
+        >> mpg >> ppg >> rpg >> apg >> spg >> bpg;
         add_player(C, team_id, jersey_num, first_name, last_name, mpg, ppg, rpg, apg, spg, bpg);
     }
     file.close();
