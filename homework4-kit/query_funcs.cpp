@@ -75,16 +75,16 @@ void query2(connection *C, string team_color) {
 
 void query3(connection *C, string team_name) {
     nontransaction N(*C);
-    string sql = "select TEAM.NAME from TEAM, COLOR where COLOR.NAME="
-                 + N.quote(team_name) + " and COLOR.COLOR_ID=TEAM.COLOR_ID;";
+    string sql = "select PLAYER.FIRST_NAME, PLAYER.LAST_NAME from TEAM, PLAYER where TEAM.NAME="
+                 + N.quote(team_name) + " and PLAYER.TEAM_ID=TEAM.TEAM_ID order by PPG desc;";
 
     result R( N.exec( sql ));
 
-    cout << "NAME\n";
+    cout << "FIRST_NAME LAST_NAME\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
-        cout << c[0].as<string>() << endl;
+        cout << c[0].as<string>() << " " << c[1].as<string>() << endl;
     }
-    cout << "Query 2 done successfully" << endl;
+    cout << "Query 3: team_name=" << team_name << " done successfully" << endl;
 }
 
 
