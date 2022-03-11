@@ -8,6 +8,7 @@ void exercise(connection *C) {
     query2(C, "Maroon");
 
     cout << "====== test query 3 =======\n";
+    query3(C, "Duke");
 
     cout << "====== test query 4 =======\n";
 
