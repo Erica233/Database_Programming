@@ -15,5 +15,7 @@ void exercise(connection *C) {
     query4(C, "PA", "LightBlue"); //no match
 
     cout << "\n====== test query 5 =======\n";
-
+    query5(C, 14);
+    query5(C, 13);
+    query5(C, 12);
 }
