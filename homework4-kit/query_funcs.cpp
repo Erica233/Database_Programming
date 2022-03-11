@@ -99,7 +99,7 @@ void query4(connection *C, string team_state, string team_color) {
               " and COLOR.COLOR_ID=TEAM.COLOR_ID and "
               "STATE.STATE_ID=TEAM.STATE_ID and PLAYER.TEAM_ID=TEAM.TEAM_ID;";
 
-    result R( N.exec( sql ));
+    result R( N.exec( ss_sql.str() ));
 
     cout << "FIRST_NAME LAST_NAME UNIFORM_NUM\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
