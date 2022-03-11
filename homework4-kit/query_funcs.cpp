@@ -69,11 +69,22 @@ void query2(connection *C, string team_color) {
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
         cout << c[0].as<string>() << endl;
     }
-    cout << "Query 2 done successfully" << endl;
+    cout << "Query 2: team_color=" << team_color << " done successfully" << endl;
 }
 
 
 void query3(connection *C, string team_name) {
+    nontransaction N(*C);
+    string sql = "select TEAM.NAME from TEAM, COLOR where COLOR.NAME="
+                 + N.quote(team_name) + " and COLOR.COLOR_ID=TEAM.COLOR_ID;";
+
+    result R( N.exec( sql ));
+
+    cout << "NAME\n";
+    for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
+        cout << c[0].as<string>() << endl;
+    }
+    cout << "Query 2 done successfully" << endl;
 }
 
 
