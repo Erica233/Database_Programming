@@ -123,7 +123,7 @@ void query5(connection *C, int num_wins) {
     cout << "FIRST_NAME LAST_NAME NAME WINS\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
         cout << c[0].as<string>() << " " << c[1].as<string>() << " "
-             << c[2].as<int>() << " " << c[3].as<int>() << endl;
+             << c[2].as<string>() << " " << c[3].as<int>() << endl;
     }
     cout << "Query 5: num_wins > " << num_wins << " done successfully" << endl;
 }
