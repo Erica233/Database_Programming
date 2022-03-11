@@ -11,6 +11,8 @@ void exercise(connection *C) {
     query3(C, "Duke");
 
     cout << "====== test query 4 =======\n";
+    query4(C, "NC", "LightBlue"); //UNC 12
+    query4(C, "PA", "LightBlue"); //no match
 
     cout << "====== test query 5 =======\n";
 

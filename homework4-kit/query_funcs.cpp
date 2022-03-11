@@ -75,8 +75,9 @@ void query2(connection *C, string team_color) {
 
 void query3(connection *C, string team_name) {
     nontransaction N(*C);
-    string sql = "select PLAYER.FIRST_NAME, PLAYER.LAST_NAME from TEAM, PLAYER where TEAM.NAME="
-                 + N.quote(team_name) + " and PLAYER.TEAM_ID=TEAM.TEAM_ID order by PPG desc;";
+    string sql = "select PLAYER.FIRST_NAME, PLAYER.LAST_NAME from TEAM, PLAYER "
+                 "where TEAM.NAME=" + N.quote(team_name) +
+                 " and PLAYER.TEAM_ID=TEAM.TEAM_ID order by PPG desc;";
 
     result R( N.exec( sql ));
 
@@ -89,6 +90,24 @@ void query3(connection *C, string team_name) {
 
 
 void query4(connection *C, string team_state, string team_color) {
+    nontransaction N(*C);
+    stringstream ss_sql;
+    ss_sql << "select PLAYER.FIRST_NAME, PLAYER.LAST_NAME, PLAYER.UNIFORM_NUM "
+              "from PLAYER, STATE, COLOR, TEAM "
+              "where STATE.NAME=" << N.quote(team_state) <<
+              " and COLOR.NAME=" << N.quote(team_color) <<
+              " and COLOR.COLOR_ID=TEAM.COLOR_ID and "
+              "STATE.STATE_ID=TEAM.STATE_ID and PLAYER.TEAM_ID=TEAM.TEAM_ID;";
+
+    result R( N.exec( sql ));
+
+    cout << "FIRST_NAME LAST_NAME UNIFORM_NUM\n";
+    for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
+        cout << c[0].as<string>() << " " << c[1].as<string>() << " "
+                << c[2].as<int>() << endl;
+    }
+    cout << "Query 4: team_state=" << team_state << ", team_color="
+    << team_color << " done successfully" << endl;
 }
 
 
