@@ -66,7 +66,7 @@ void query1(connection *C,
     vector<double> maxs2 { max_spg, max_bpg };
     for (int i = 0; i < mins1.size(); i++) {
         if (uses[i]) {
-            ss_sql << " and " << names[i] << "BETWEEN " << mins1[i] << " AND " << maxs1[i];
+            ss_sql << " and " << names[i] << " BETWEEN " << mins1[i] << " AND " << maxs1[i];
         }
     }
     for (int i = 0; i < mins2.size(); i++) {
