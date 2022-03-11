@@ -72,10 +72,10 @@ void query1(connection *C,
 
     result R( N.exec( ss_sql.str() ));
 
-    cout << "FIRST_NAME LAST_NAME NAME WINS\n";
+    //cout << "FIRST_NAME LAST_NAME NAME WINS\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
-        cout << c[0].as<string>() << " " << c[1].as<string>() << " "
-             << c[2].as<string>() << " " << c[3].as<int>() << endl;
+        //cout << c[0].as<string>() << " " << c[1].as<string>() << " "
+        //     << c[2].as<string>() << " " << c[3].as<int>() << endl;
     }
     cout << "Query 1 done successfully" << endl;
 }
