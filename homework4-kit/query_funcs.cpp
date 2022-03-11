@@ -59,7 +59,7 @@ void query1(connection *C,
 
 
 void query2(connection *C, string team_color) {
-    nontransaction N(C);
+    nontransaction N(*C);
     string sql = "select TEAM.NAME from TEAM, COLOR where COLOR.NAME="
             + N.quote(team_color) + " and COLOR.COLOR_ID=TEAM.COLOR_ID;";
 
