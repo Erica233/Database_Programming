@@ -40,7 +40,7 @@ void add_state(connection *C, string name) {
 
 void add_color(connection *C, string name) {
     work W(*C);
-    string sql = "INSERT INTO COLOR (NAME) VALUES ('" + W.quote(name) + "');";
+    string sql = "INSERT INTO COLOR (NAME) VALUES (" + W.quote(name) + ");";
 
     W.exec( sql );
     W.commit();
