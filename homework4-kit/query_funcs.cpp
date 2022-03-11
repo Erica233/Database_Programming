@@ -75,7 +75,6 @@ void query1(connection *C,
         }
     }
     ss_sql << ";";
-    //cout << ss_sql.str() << endl;
 
     result R( N.exec( ss_sql.str() ));
 
