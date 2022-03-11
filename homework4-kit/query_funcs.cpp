@@ -71,7 +71,7 @@ void query1(connection *C,
     }
     for (int i = 0; i < mins2.size(); i++) {
         if (uses[i + 4]) {
-            ss_sql << " and " << names[i + 4] << "BETWEEN " << mins2[i] << " AND " << maxs2[i];
+            ss_sql << " and " << names[i + 4] << " BETWEEN " << mins2[i] << " AND " << maxs2[i];
         }
     }
     ss_sql << ";";
