@@ -125,7 +125,7 @@ void query3(connection *C, string team_name) {
 void query4(connection *C, string team_state, string team_color) {
     nontransaction N(*C);
     stringstream ss_sql;
-    ss_sql << "select PLAYER.FIRST_NAME, PLAYER.LAST_NAME, PLAYER.UNIFORM_NUM "
+    ss_sql << "select PLAYER.UNIFORM_NUM, PLAYER.FIRST_NAME, PLAYER.LAST_NAME "
               "from PLAYER, STATE, COLOR, TEAM "
               "where STATE.NAME=" << N.quote(team_state) <<
               " and COLOR.NAME=" << N.quote(team_color) <<
@@ -134,7 +134,7 @@ void query4(connection *C, string team_state, string team_color) {
 
     result R( N.exec( ss_sql.str() ));
 
-    cout << "FIRST_NAME LAST_NAME UNIFORM_NUM\n";
+    cout << "UNIFORM_NUM FIRST_NAME LAST_NAME\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
         cout << c[0].as<string>() << " " << c[1].as<string>() << " "
                 << c[2].as<int>() << endl;
