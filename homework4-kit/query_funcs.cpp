@@ -136,8 +136,8 @@ void query4(connection *C, string team_state, string team_color) {
 
     cout << "UNIFORM_NUM FIRST_NAME LAST_NAME\n";
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
-        cout << c[0].as<string>() << " " << c[1].as<string>() << " "
-                << c[2].as<int>() << endl;
+        cout << c[0].as<int>() << " " << c[1].as<string>() << " "
+                << c[2].as<string>() << endl;
     }
     //cout << "Query 4: team_state=" << team_state << ", team_color="
     //<< team_color << " done successfully" << endl;
