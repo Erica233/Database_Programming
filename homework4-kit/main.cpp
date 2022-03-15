@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cstring>
 
 #include "exerciser.h"
 #include "query_funcs.h"
