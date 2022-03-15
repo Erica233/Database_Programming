@@ -87,7 +87,7 @@ void query1(connection *C,
                 << c[8].as<int>() << " " << fixed << setprecision(1)
                 << c[9].as<double>() << " " << c[10].as<double>() << endl;
     }
-    cout << "Query 1 done successfully" << endl;
+    //cout << "Query 1 done successfully" << endl;
 }
 
 
@@ -102,7 +102,7 @@ void query2(connection *C, string team_color) {
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
         cout << c[0].as<string>() << endl;
     }
-    cout << "Query 2: team_color=" << team_color << " done successfully" << endl;
+    //cout << "Query 2: team_color=" << team_color << " done successfully" << endl;
 }
 
 
@@ -118,7 +118,7 @@ void query3(connection *C, string team_name) {
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
         cout << c[0].as<string>() << " " << c[1].as<string>() << endl;
     }
-    cout << "Query 3: team_name=" << team_name << " done successfully" << endl;
+    //cout << "Query 3: team_name=" << team_name << " done successfully" << endl;
 }
 
 
@@ -139,8 +139,8 @@ void query4(connection *C, string team_state, string team_color) {
         cout << c[0].as<string>() << " " << c[1].as<string>() << " "
                 << c[2].as<int>() << endl;
     }
-    cout << "Query 4: team_state=" << team_state << ", team_color="
-    << team_color << " done successfully" << endl;
+    //cout << "Query 4: team_state=" << team_state << ", team_color="
+    //<< team_color << " done successfully" << endl;
 }
 
 
@@ -158,5 +158,5 @@ void query5(connection *C, int num_wins) {
         cout << c[0].as<string>() << " " << c[1].as<string>() << " "
              << c[2].as<string>() << " " << c[3].as<int>() << endl;
     }
-    cout << "Query 5: num_wins > " << num_wins << " done successfully" << endl;
+    //cout << "Query 5: num_wins > " << num_wins << " done successfully" << endl;
 }

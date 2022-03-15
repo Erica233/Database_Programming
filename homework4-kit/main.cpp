@@ -21,7 +21,7 @@ void drop_tables(connection * C) {
     /* Execute SQL query */
     W.exec( sql );
     W.commit();
-    cout << "Dropped tables successfully" << endl;
+    //cout << "Dropped tables successfully" << endl;
 }
 
 void create_tables(connection * C) {
@@ -62,7 +62,7 @@ void create_tables(connection * C) {
     work W(*C);
     W.exec( sql );
     W.commit();
-    cout << "Created tables successfully" << endl;
+    //cout << "Created tables successfully" << endl;
 }
 
 void insert_states_or_colors(connection * C, const char * filename) {
@@ -85,7 +85,7 @@ void insert_states_or_colors(connection * C, const char * filename) {
         }
     }
     file.close();
-    cout << "Added tuples according to " << filename << " successfully\n";
+    //cout << "Added tuples according to " << filename << " successfully\n";
 }
 
 void insert_teams(connection * C) {
@@ -103,7 +103,7 @@ void insert_teams(connection * C) {
         add_team(C, name, state_id, color_id, wins, losses);
     }
     file.close();
-    cout << "Added teams successfully\n";
+    //cout << "Added teams successfully\n";
 }
 
 void insert_players(connection * C) {
@@ -123,7 +123,7 @@ void insert_players(connection * C) {
         add_player(C, team_id, jersey_num, first_name, last_name, mpg, ppg, rpg, apg, spg, bpg);
     }
     file.close();
-    cout << "Added players successfully\n";
+    //cout << "Added players successfully\n";
 }
 
 int main(int argc, char *argv[]) {
