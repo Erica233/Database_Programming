@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class State(models.Model):
     state_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=2)
+    name = models.CharField(max_length=10)
 
 class Color(models.Model):
     color_id = models.AutoField(primary_key=True)

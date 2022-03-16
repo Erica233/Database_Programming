@@ -7,15 +7,6 @@ django.setup()
 from orm.models import *
 
 
-def drop_tables():
-    print("")
-
-def create_tables():
-    create_state()
-    create_color()
-    create_team()
-    create_player()
-
 def create_state():
     file = open("state.txt")
     for line in file:
@@ -39,6 +30,15 @@ def create_player():
     for line in file:
         player_id, team_id, uniform_num, first_name, last_name, mpg, ppg, rpg, apg, spg, bpg = line.split(' ')
         State.objects.create(team_id=team_id, uniform_num=uniform_num, first_name=first_name, last_name=last_name, mpg=mpg, ppg=ppg, rpg=rpg, apg=apg, spg=spg, bpg=bpg)
+
+def drop_tables():
+    print("")
+
+def create_tables():
+    create_state()
+    create_color()
+    create_team()
+    create_player()
 
 def main():
     drop_tables()
