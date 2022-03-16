@@ -1,4 +1,11 @@
-from models import *
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+
+import django
+django.setup()
+
+from orm.models import *
+
 
 def drop_tables():
     print("")
