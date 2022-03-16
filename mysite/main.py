@@ -25,7 +25,7 @@ def create_team():
     file = open("team.txt")
     for line in file:
         team_id, name, state_id, color_id, wins, losses = line.split(' ')
-        Team.objects.create(team_id=team_id, name=name, state_id_state_id=state_id, color_id_color_id=color_id, wins=wins, losses=losses)
+        Team.objects.create(team_id=team_id, name=name, state_id_id=state_id, color_id_id=color_id, wins=wins, losses=losses)
     file.close()
 
 def create_player():
