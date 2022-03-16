@@ -32,7 +32,10 @@ def create_player():
         Player.objects.create(team_id=team_id, uniform_num=uniform_num, first_name=first_name, last_name=last_name, mpg=mpg, ppg=ppg, rpg=rpg, apg=apg, spg=spg, bpg=bpg)
 
 def drop_tables():
-    print("")
+    Player.objects.all().delete()
+    Team.objects.all().delete()
+    State.objects.all().delete()
+    Color.objects.all().delete()
 
 def create_tables():
     create_state()
