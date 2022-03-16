@@ -1,4 +1,4 @@
-from models import State
+from models import *
 
 def drop_tables():
     print("")
