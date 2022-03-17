@@ -61,4 +61,4 @@ def query2(team_color):
     output = Team.objects.filter(color_id__name=team_color)
     print("NAME")
     for team in output:
-        print(team.name)
+        print("a", team.name)
