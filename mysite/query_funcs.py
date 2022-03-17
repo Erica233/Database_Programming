@@ -35,6 +35,16 @@ def add_player(player_id, team_id, uniform_num, first_name, last_name, mpg, ppg,
     Player.objects.create(player_id=player_id, team_id_id=team_id, uniform_num=uniform_num, first_name=first_name,
                           last_name=last_name, mpg=mpg, ppg=ppg, rpg=rpg, apg=apg, spg=spg, bpg=bpg)
 
+def add_team(team_id, name, state_id, color_id, wins, losses):
+    Team.objects.create(team_id=team_id, name=name, state_id_id=state_id, color_id_id=color_id, wins=wins,
+                        losses=losses)
+
+def add_state(state_id, name):
+    State.objects.create(state_id=state_id, name=name.strip('\n'))
+
+def add_color(color_id, name):
+    Color.objects.create(color_id=color_id, name=name.strip('\n'))
+
 def query1(use_mpg, min_mpg, max_mpg,
            use_ppg, min_ppg, max_ppg,
            use_rpg, min_rpg, max_rpg,

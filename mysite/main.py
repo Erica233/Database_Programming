@@ -12,21 +12,21 @@ def create_state():
     file = open("state.txt")
     for line in file:
         state_id, name = line.split(' ')
-        State.objects.create(state_id=state_id, name=name.strip('\n'))
+        query_funcs.add_state(state_id, name)
     file.close()
 
 def create_color():
     file = open("color.txt")
     for line in file:
         color_id, name = line.split(' ')
-        Color.objects.create(color_id=color_id, name=name.strip('\n'))
+        query_funcs.add_color(color_id, name)
     file.close()
 
 def create_team():
     file = open("team.txt")
     for line in file:
         team_id, name, state_id, color_id, wins, losses = line.split(' ')
-        Team.objects.create(team_id=team_id, name=name, state_id_id=state_id, color_id_id=color_id, wins=wins, losses=losses)
+        query_funcs.add_team(team_id, name, state_id, color_id, wins, losses)
     file.close()
 
 def create_player():
