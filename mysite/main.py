@@ -12,14 +12,14 @@ def create_state():
     file = open("state.txt")
     for line in file:
         state_id, name = line.split(' ')
-        State.objects.create(state_id=state_id, name=name)
+        State.objects.create(state_id=state_id, name=name.strip('\n'))
     file.close()
 
 def create_color():
     file = open("color.txt")
     for line in file:
         color_id, name = line.split(' ')
-        Color.objects.create(color_id=color_id, name=name)
+        Color.objects.create(color_id=color_id, name=name.strip('\n'))
     file.close()
 
 def create_team():
