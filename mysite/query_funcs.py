@@ -25,11 +25,11 @@ def exercise():
     print("\n====== test query 4 =======")
     query4("NC", "LightBlue") #UNC 12
     query4("PA", "LightBlue") #no match
-    '''
+
     print("\n====== test query 5 =======")
     query5(14) #no match
     query5(13) #UNC 12
-    query5(11) #4 teams'''
+    query5(11) #4 teams
 
 def query1(use_mpg, min_mpg, max_mpg,
            use_ppg, min_ppg, max_ppg,
@@ -74,3 +74,9 @@ def query4(team_state, team_color):
     print("UNIFORM_NUM FIRST_NAME LAST_NAME")
     for player in output:
         print(player.uniform_num, player.first_name, player.last_name)
+
+def query5(num_wins):
+    output = Player.objects.filter(team_id__wins__gt=num_wins)
+    print("FIRST_NAME LAST_NAME NAME WINS")
+    for player in output:
+        print(player.first_name, player.last_name, player.team_id_name, player.team_id_wins)
