@@ -58,7 +58,7 @@ def query1(use_mpg, min_mpg, max_mpg,
               player.rpg, player.apg, player.spg, player.bpg)
 
 def query2(team_color):
-    output = Team.objects.filter(color__name=team_color)
+    output = Team.objects.filter(color_id__name=team_color)
     print("NAME")
     for team in output:
         print(team.name)
