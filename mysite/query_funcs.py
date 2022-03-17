@@ -79,4 +79,4 @@ def query5(num_wins):
     output = Player.objects.filter(team_id__wins__gt=num_wins)
     print("FIRST_NAME LAST_NAME NAME WINS")
     for player in output:
-        print(player.first_name, player.last_name, player.team.name, player.team.wins)
+        print(player.first_name, player.last_name, player.team_id.name, player.team_id.wins)
