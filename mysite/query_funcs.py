@@ -15,10 +15,10 @@ def exercise():
            1, 0, 2,
            1, 0, 1)
 
-'''    print("\n====== test query 2 =======")
+    print("\n====== test query 2 =======")
     query2("LightBlue")
     query2("Maroon")
-
+    '''
     print("\n====== test query 3 =======")
     query3("Duke")
 
@@ -57,4 +57,8 @@ def query1(use_mpg, min_mpg, max_mpg,
               player.first_name, player.last_name, player.mpg, player.ppg,
               player.rpg, player.apg, player.spg, player.bpg)
 
-#def query2(team_color):
+def query2(team_color):
+    output = Team.objects.filter(color__name=team_color)
+    print("NAME")
+    for team in output:
+        print(team.name)
