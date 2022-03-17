@@ -31,6 +31,10 @@ def exercise():
     query5(13) #UNC 12
     query5(11) #4 teams
 
+def add_player(player_id, team_id, uniform_num, first_name, last_name, mpg, ppg, rpg, apg, spg, bpg):
+    Player.objects.create(player_id=player_id, team_id_id=team_id, uniform_num=uniform_num, first_name=first_name,
+                          last_name=last_name, mpg=mpg, ppg=ppg, rpg=rpg, apg=apg, spg=spg, bpg=bpg)
+
 def query1(use_mpg, min_mpg, max_mpg,
            use_ppg, min_ppg, max_ppg,
            use_rpg, min_rpg, max_rpg,
