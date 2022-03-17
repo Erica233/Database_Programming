@@ -53,7 +53,7 @@ def query1(use_mpg, min_mpg, max_mpg,
 
     print("PLAYER_ID TEAM_ID UNIFORM_NUM FIRST_NAME LAST_NAME MPG PPG RPG APG SPG BPG")
     for player in all:
-        print(player.player_id, player.team_id, player.uniform_num,
+        print(player.player_id, player.team.team_id, player.uniform_num,
               player.first_name, player.last_name, player.mpg, player.ppg,
               player.rpg, player.apg, player.spg, player.bpg)
 
