@@ -1,7 +1,7 @@
 from orm.models import *
 
 def exercise():
-    print("\n====== test query 1 =======")
+    print("====== test query 1 =======")
     query1(1, 35, 40,
            0, 1, 1,
            0, 1, 1,
