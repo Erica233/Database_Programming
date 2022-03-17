@@ -19,3 +19,21 @@ NAME
 BostonCollege
 FloridaState
 VirginiaTech
+
+====== test query 3 =======
+FIRST_NAME LAST_NAME
+Luke Kennard
+Jayson Tatum
+Grayson Allen
+Frank Jackson
+Amile Jefferson
+Matt Jones
+Harry Giles
+Chase Jeter
+Antonio Vrankovic
+Jack White
+Javin DeLaurier
+Marques Bolden
+Justin Robinson
+Nick Pagliuca
+Brennan Besser
