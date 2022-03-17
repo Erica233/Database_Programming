@@ -70,7 +70,7 @@ def query3(team_name):
         print(player.first_name, player.last_name)
 
 def query4(team_state, team_color):
-    output = Player.objects.filter(team_id__name=team_state, color_id__name=team_color)
+    output = Player.objects.filter(team_id__state_id__name=team_state, team_id__color_id__name=team_color)
     print("UNIFORM_NUM FIRST_NAME LAST_NAME")
     for player in output:
         print(player.uniform_num, player.first_name, player.last_name)
