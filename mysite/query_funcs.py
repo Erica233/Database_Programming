@@ -59,7 +59,7 @@ def query1(use_mpg, min_mpg, max_mpg,
 
 def query2(team_color):
     print(team_color)
-    output = Team.objects.filter(color_id_name=team_color)
+    output = Team.objects.filter(color_id__name=team_color)
     print(output)
     print("NAME")
     for team in output:
