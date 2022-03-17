@@ -1,5 +1,36 @@
 from orm.models import *
 
+def exercise():
+    print("\n====== test query 1 =======")
+    query1(1, 35, 40,
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1,
+           0, 1, 1)
+    query1(1, 35, 40,
+           1, 10, 20,
+           1, 5, 10,
+           1, 1, 3,
+           1, 0, 2,
+           1, 0, 1)
+
+'''    print("\n====== test query 2 =======")
+    query2("LightBlue")
+    query2("Maroon")
+
+    print("\n====== test query 3 =======")
+    query3("Duke")
+
+    print("\n====== test query 4 =======")
+    query4("NC", "LightBlue") #UNC 12
+    query4("PA", "LightBlue") #no match
+
+    print("\n====== test query 5 =======")
+    query5(14) #no match
+    query5(13) #UNC 12
+    query5(11) #4 teams'''
+
 def query1(use_mpg, min_mpg, max_mpg,
            use_ppg, min_ppg, max_ppg,
            use_rpg, min_rpg, max_rpg,

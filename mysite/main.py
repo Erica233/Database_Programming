@@ -5,6 +5,7 @@ import django
 django.setup()
 
 from orm.models import *
+import query_funcs
 
 
 def create_state():
@@ -50,6 +51,7 @@ def create_tables():
 def main():
     drop_tables()
     create_tables()
+    query_funcs.exercise()
 
 if __name__ == "__main__":
     main()
