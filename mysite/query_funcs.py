@@ -18,10 +18,10 @@ def exercise():
     print("\n====== test query 2 =======")
     query2("LightBlue")
     query2("Maroon")
-    '''
+
     print("\n====== test query 3 =======")
     query3("Duke")
-
+    '''
     print("\n====== test query 4 =======")
     query4("NC", "LightBlue") #UNC 12
     query4("PA", "LightBlue") #no match
@@ -62,3 +62,9 @@ def query2(team_color):
     print("NAME")
     for team in output:
         print(team.name)
+
+def query3(team_name):
+    output = Player.objects.filter(team_id__name=team_name).order_by('-ppg')
+    print("FIRST_NAME LAST_NAME")
+    for player in output:
+        print(player.first_name, player.last_name)
